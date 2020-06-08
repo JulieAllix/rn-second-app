@@ -1,18 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
+
+import Card from '../components/Card';
 
 const StartGameScreen = props => {
     return (
         <View style={styles.screen}>
             <Text style={styles.title}>Start a New Game !</Text>
-            <View style={styles.inputContainer}> 
-                <Text>Select a Number</Text>
+            <Card style={styles.inputContainer}>
+                <Text style={styles.subTitle}>Select a Number</Text>
                 <TextInput />
                 <View style={styles.buttonsContainer}>
-                    <Button title="Reset" onPress={() => {}} />
-                    <Button title="Confirm" onPress={() => {}} />
+                    <TouchableOpacity style={styles.button} onPress={() => {}}>
+                        <Text style={styles.text}>Reset</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => {}}>
+                        <Text style={styles.text}>Confirm</Text>
+                    </TouchableOpacity>
                 </View>
-            </View>
+            </Card>
         </View>
     );
 };
@@ -26,22 +32,34 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginVertical: 10,
+        color: '#fb4d3d'
+    },
+    subTitle: {
+        fontSize: 15,
+        color: '#292f36',
+        fontWeight: 'bold',
     },
     inputContainer: {
         width: 300,
         maxWidth: '80%',
         alignItems: 'center',
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: 2 },
-        shadowRadius: 6,
-        shadowOpacity: 0.26,
-        backgroundColor: 'white'
     },
     buttonsContainer: {
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-between',
-        paddingHorizontal: 15,
+        paddingHorizontal: 25,
+    },
+    button: {
+        backgroundColor: '#fb4d3d',
+        padding: 10,
+        borderRadius: 5,
+        width: '35%',
+        alignItems: 'center',
+    },
+    text: {
+        color: '#f1faee',
+        fontWeight: 'bold'
     }
 });
 
