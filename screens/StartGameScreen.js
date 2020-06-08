@@ -16,6 +16,8 @@ import Colors from '../constants/themeColors';
 const StartGameScreen = props => {
 
     const [enteredValue, setEnteredValue] = useState('');
+    const [confirmed, setConfirmed] = useState(false);
+    const [selectedNumber, setSelectedNumber] = useState();
 
     const numberInputHandler = inputText => {
         // replace anything that's not a number from 0 to 9, globally, with an empty string
@@ -24,6 +26,23 @@ const StartGameScreen = props => {
 
     const resetInputHandler = () => {
         setEnteredValue('');
+        setConfirmed(false);
+    };
+
+    const confirmInputHandler = () => {
+        const chosenNumber = parseInt(enteredValue);
+        if (chosenNumber === NaN || chosenNumber <=0 || chosenNumber > 99) {
+            return;
+        };
+        setConfirmed(true);
+        setEnteredValue('');
+        setSelectedNumber(parseInt(enteredValue));
+    };
+
+    let confirmedOutput;
+
+    if (confirmed) {
+        confirmedOutput = <Text>Chosen Number : {selectedNumber}</Text>
     };
 
     return (
@@ -51,11 +70,12 @@ const StartGameScreen = props => {
                         <TouchableOpacity style={styles.button} onPress={resetInputHandler}>
                             <Text style={styles.text}>Reset</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.button} onPress={() => {}}>
+                        <TouchableOpacity style={styles.button} onPress={confirmInputHandler}>
                             <Text style={styles.text}>Confirm</Text>
                         </TouchableOpacity>
                     </View>
                 </Card>
+                {confirmedOutput}
             </View>
         </TouchableWithoutFeedback>
     );
