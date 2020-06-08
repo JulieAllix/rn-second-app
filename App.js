@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Header from './components/Header';
 import StartGameScreen from './screens/StartGameScreen';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+
 
 export default function App() {
   return (

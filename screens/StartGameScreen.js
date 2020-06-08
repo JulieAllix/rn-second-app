@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity } from 'react-native';
 
 import Card from '../components/Card';
+import Colors from '../constants/themeColors';
 
 const StartGameScreen = props => {
     return (
@@ -32,11 +33,11 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 20,
         marginVertical: 10,
-        color: '#fb4d3d'
+        color: Colors.primary
     },
     subTitle: {
         fontSize: 15,
-        color: '#292f36',
+        color: Colors.accent,
         fontWeight: 'bold',
     },
     inputContainer: {
@@ -51,14 +52,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,
     },
     button: {
-        backgroundColor: '#fb4d3d',
+        backgroundColor: Colors.primary,
         padding: 10,
         borderRadius: 5,
-        width: '35%',
+        width: 95,
         alignItems: 'center',
     },
     text: {
-        color: '#f1faee',
+        color: Colors.light,
         fontWeight: 'bold'
     }
 });
