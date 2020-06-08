@@ -12,6 +12,8 @@ import {
 
 import Card from '../components/Card';
 import Input from '../components/Input';
+import NumberContainer from '../components/NumberContainer';
+
 import Colors from '../constants/themeColors';
 
 const StartGameScreen = props => {
@@ -45,17 +47,22 @@ const StartGameScreen = props => {
             return;
         };
         setConfirmed(true);
-        setEnteredValue('');
         setSelectedNumber(parseInt(enteredValue));
+        setEnteredValue('');
+        Keyboard.dismiss();
     };
 
     let confirmedOutput;
 
     if (confirmed) {
         confirmedOutput = 
-        <Card style={styles.inputContainer}>
-            <Text style={styles.confirmedOutput}>Chosen Number : {selectedNumber}</Text>
-        </Card>
+            <Card style={styles.inputContainer}>
+                <Text style={styles.confirmedOutput}>Chosen Number : </Text>
+                <NumberContainer>{selectedNumber}</NumberContainer>
+                <TouchableOpacity style={styles.button} onPress={() => props.onStartGame(selectedNumber)}>
+                    <Text style={styles.text}>Start Game</Text>
+                </TouchableOpacity>
+            </Card>
     };
 
     return (
@@ -118,7 +125,7 @@ const styles = StyleSheet.create({
     },
     confirmedOutput: {
         fontWeight: 'bold',
-        color: Colors.primary,
+        color: Colors.accent,
         fontSize: 15
     },
     buttonsContainer: {
@@ -126,17 +133,18 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'space-between',
         paddingHorizontal: 25,
+        marginVertical: 20
     },
     button: {
         backgroundColor: Colors.primary,
         padding: 10,
         borderRadius: 5,
         width: 95,
-        alignItems: 'center',
     },
     text: {
         color: Colors.light,
         fontWeight: 'bold',
+        textAlign: 'center'
     },
     input: {
         width: 50,
