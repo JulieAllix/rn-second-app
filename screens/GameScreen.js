@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
@@ -17,19 +17,45 @@ const generateRandomBetween = (min, max, exclude) => {
     };
 };
 
-
 const GameScreen = props => {
     const [currentGuess, setCurrentGuess] = useState(generateRandomBetween(1, 100, props.userChoice));
+    const [rounds, setRounds] = useState(0);
+    const currentLow = useRef(1);
+    const currentHigh = useRef(100);
+
+    const { userChoice, onGameOver } = props;
+
+    useEffect(() => {
+        if (currentGuess === props.userChoice) {
+            onGameOver(rounds);
+        }
+    }, [currentGuess, userChoice, onGameOver]);
+
+    const nextGuessHandler = direction => {
+        if ((direction === 'lower' && currentGuess < props.userChoice) || (direction === 'greater' && currentGuess > props.userChoice)) {
+            Alert.alert('Don\'t lie !!', 'You filthy cheater ...', [{text: 'Sorry!', style: 'cancel'}
+            ]);
+            return;
+        }
+        if (direction === 'lower') {
+            currentHigh.current = currentGuess;
+        } else {
+            currentLow.current = currentGuess;
+        }
+        const nextNumber = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
+        setCurrentGuess(nextNumber);
+        setRounds(curRounds => curRounds + 1);
+    };
 
     return (
         <View style={styles.screen}>
             <Text>Opponent's Guess</Text>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card style={styles.buttonsContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => {}}>
+                <TouchableOpacity style={styles.button} onPress={nextGuessHandler.bind(this, 'lower')}>
                     <Text style={styles.text}>Lower</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => {}}>
+                <TouchableOpacity style={styles.button} onPress={nextGuessHandler.bind(this, 'greater')}>
                     <Text style={styles.text}>Greater</Text>
                 </TouchableOpacity>
             </Card>
