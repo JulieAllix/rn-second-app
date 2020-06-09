@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 
+import BodyText from '../components/BodyText';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
+import MainButton from '../components/MainButton';
 
 import Colors from '../constants/themeColors';
 
@@ -49,15 +51,15 @@ const GameScreen = props => {
 
     return (
         <View style={styles.screen}>
-            <Text style={styles.subTitle}>Opponent's Guess</Text>
+            <BodyText style={styles.subTitle}>Opponent's Guess</BodyText>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card style={styles.buttonsContainer}>
-                <TouchableOpacity style={styles.button} onPress={nextGuessHandler.bind(this, 'lower')}>
-                    <Text style={styles.text}>Lower</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={nextGuessHandler.bind(this, 'greater')}>
-                    <Text style={styles.text}>Greater</Text>
-                </TouchableOpacity>
+                <MainButton onPress={nextGuessHandler.bind(this, 'lower')}>
+                    Lower
+                </MainButton>
+                <MainButton onPress={nextGuessHandler.bind(this, 'greater')}>
+                    Greater
+                </MainButton>
             </Card>
         </View>
     )
@@ -79,17 +81,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 25,
         marginVertical: 10
-    },
-    button: {
-        backgroundColor: Colors.primary,
-        padding: 10,
-        borderRadius: 5,
-        width: 110,
-    },
-    text: {
-        color: Colors.light,
-        textAlign: 'center',
-        fontSize: 16,
     },
 });
 

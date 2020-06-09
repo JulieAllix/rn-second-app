@@ -15,6 +15,7 @@ import BodyText from '../components/BodyText';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
+import MainButton from '../components/MainButton';
 
 import Colors from '../constants/themeColors';
 
@@ -61,9 +62,9 @@ const StartGameScreen = props => {
             <Card style={styles.inputContainer}>
                 <BodyText style={styles.confirmedOutput}>Chosen Number : </BodyText>
                 <NumberContainer>{selectedNumber}</NumberContainer>
-                <TouchableOpacity style={styles.button} onPress={() => props.onStartGame(selectedNumber)}>
-                    <BodyText style={styles.text}>Start Game</BodyText>
-                </TouchableOpacity>
+                <MainButton onPress={() => props.onStartGame(selectedNumber)}>
+                    Start Game
+                </MainButton>
             </Card>
     };
 
@@ -89,12 +90,12 @@ const StartGameScreen = props => {
                         value={enteredValue}
                     />
                     <View style={styles.buttonsContainer}>
-                        <TouchableOpacity style={styles.button} onPress={resetInputHandler}>
-                            <BodyText style={styles.text}>Reset</BodyText>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button} onPress={confirmInputHandler}>
-                            <BodyText style={styles.text}>Confirm</BodyText>
-                        </TouchableOpacity>
+                        <MainButton onPress={resetInputHandler}>
+                            Reset
+                        </MainButton>
+                        <MainButton onPress={confirmInputHandler}>
+                            Confirm
+                        </MainButton>
                     </View>
                 </Card>
                 {confirmedOutput}
@@ -134,17 +135,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 10,
         marginVertical: 10
-    },
-    button: {
-        backgroundColor: Colors.primary,
-        padding: 10,
-        borderRadius: 5,
-        width: 110,
-    },
-    text: {
-        color: Colors.light,
-        textAlign: 'center',
-        fontSize: 16,
     },
     input: {
         width: 50,
