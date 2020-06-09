@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 import Colors from '../constants/themeColors';
 
@@ -7,6 +7,7 @@ const GameOverScreen = props => {
     return (
     <View style={styles.screen}>
         <Text style={styles.summary}>The Game is Over !</Text>
+        <Image style={styles.image} source={require('../assets/game-over.png')}/>
         <Text style={styles.summary}>Number of rounds: {props.roundsNumber}</Text>
         <Text style={styles.summary}>Number was: {props.userNumber}</Text>
         <TouchableOpacity style={styles.button} onPress={props.onRestart}>
@@ -37,6 +38,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 16,
     },
+    image: {
+        width: '80%',
+        height: 300,
+    }
 });
 
 export default GameOverScreen;
