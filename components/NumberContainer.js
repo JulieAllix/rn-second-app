@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
     },
     number: {
         color: Colors.primary,
-        fontSize: 22
+        fontSize: 22,
+        fontFamily: 'open-sans',
     }
 });
 

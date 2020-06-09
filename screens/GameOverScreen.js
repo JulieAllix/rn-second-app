@@ -6,9 +6,9 @@ import Colors from '../constants/themeColors';
 const GameOverScreen = props => {
     return (
     <View style={styles.screen}>
-        <Text>The Game is Over !</Text>
-        <Text>Number of rounds: {props.roundsNumber}</Text>
-        <Text>Number was: {props.userNumber}</Text>
+        <Text style={styles.summary}>The Game is Over !</Text>
+        <Text style={styles.summary}>Number of rounds: {props.roundsNumber}</Text>
+        <Text style={styles.summary}>Number was: {props.userNumber}</Text>
         <TouchableOpacity style={styles.button} onPress={props.onRestart}>
             <Text style={styles.text}>New Game</Text>
         </TouchableOpacity>
@@ -22,16 +22,22 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    summary: {
+        fontFamily: 'open-sans',
+        fontSize: 20,
+    },
     button: {
         backgroundColor: Colors.primary,
         padding: 10,
+        marginTop: 20,
         borderRadius: 5,
-        width: 95,
+        width: 110,
     },
     text: {
         color: Colors.light,
-        fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'open-sans',
+        fontSize: 16,
     },
 });
 

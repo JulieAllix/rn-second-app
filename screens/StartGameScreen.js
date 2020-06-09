@@ -108,14 +108,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontSize: 20,
+        fontSize: 25,
         marginVertical: 10,
         color: Colors.primary,
+        fontFamily: 'open-sans',
     },
     subTitle: {
-        fontSize: 15,
+        fontSize: 20,
         color: Colors.accent,
-        fontWeight: 'bold',
+        fontFamily: 'open-sans',
     },
     inputContainer: {
         width: 300,
@@ -124,27 +125,28 @@ const styles = StyleSheet.create({
         marginTop: 20,
     },
     confirmedOutput: {
-        fontWeight: 'bold',
         color: Colors.accent,
-        fontSize: 15
+        fontSize: 20,
+        fontFamily: 'open-sans',
     },
     buttonsContainer: {
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-between',
-        paddingHorizontal: 25,
-        marginVertical: 20
+        paddingHorizontal: 10,
+        marginVertical: 10
     },
     button: {
         backgroundColor: Colors.primary,
         padding: 10,
         borderRadius: 5,
-        width: 95,
+        width: 110,
     },
     text: {
         color: Colors.light,
-        fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'open-sans',
+        fontSize: 16,
     },
     input: {
         width: 50,

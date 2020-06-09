@@ -49,7 +49,7 @@ const GameScreen = props => {
 
     return (
         <View style={styles.screen}>
-            <Text>Opponent's Guess</Text>
+            <Text style={styles.subTitle}>Opponent's Guess</Text>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card style={styles.buttonsContainer}>
                 <TouchableOpacity style={styles.button} onPress={nextGuessHandler.bind(this, 'lower')}>
@@ -69,23 +69,29 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
     },
+    subTitle: {
+        fontSize: 20,
+        color: Colors.accent,
+        fontFamily: 'open-sans',
+    },
     buttonsContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginTop: 20,
-        width: 300,
-        maxWidth: '80%'
+        width: '100%',
+        justifyContent: 'space-between',
+        paddingHorizontal: 25,
+        marginVertical: 10
     },
     button: {
         backgroundColor: Colors.primary,
         padding: 10,
         borderRadius: 5,
-        width: 95,
+        width: 110,
     },
     text: {
         color: Colors.light,
-        fontWeight: 'bold',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: 'open-sans',
+        fontSize: 16,
     },
 });
 

@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     },
     headerTitle: {
         color: Colors.light,
-        fontSize: 18,
+        fontSize: 28,
+        fontFamily: 'lobster',
     }
 });
 
