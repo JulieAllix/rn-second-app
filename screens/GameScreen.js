@@ -72,7 +72,6 @@ const styles = StyleSheet.create({
     subTitle: {
         fontSize: 20,
         color: Colors.accent,
-        fontFamily: 'open-sans',
     },
     buttonsContainer: {
         flexDirection: 'row',
@@ -90,7 +89,6 @@ const styles = StyleSheet.create({
     text: {
         color: Colors.light,
         textAlign: 'center',
-        fontFamily: 'open-sans',
         fontSize: 16,
     },
 });

@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     summary: {
-        fontFamily: 'open-sans',
         fontSize: 20,
     },
     button: {
@@ -36,7 +35,6 @@ const styles = StyleSheet.create({
     text: {
         color: Colors.light,
         textAlign: 'center',
-        fontFamily: 'open-sans',
         fontSize: 16,
     },
 });

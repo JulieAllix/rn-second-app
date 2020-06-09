@@ -10,6 +10,8 @@ import {
     Alert
  } from 'react-native';
 
+import TitleText from '../components/TitleText';
+import BodyText from '../components/BodyText';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
@@ -57,10 +59,10 @@ const StartGameScreen = props => {
     if (confirmed) {
         confirmedOutput = 
             <Card style={styles.inputContainer}>
-                <Text style={styles.confirmedOutput}>Chosen Number : </Text>
+                <BodyText style={styles.confirmedOutput}>Chosen Number : </BodyText>
                 <NumberContainer>{selectedNumber}</NumberContainer>
                 <TouchableOpacity style={styles.button} onPress={() => props.onStartGame(selectedNumber)}>
-                    <Text style={styles.text}>Start Game</Text>
+                    <BodyText style={styles.text}>Start Game</BodyText>
                 </TouchableOpacity>
             </Card>
     };
@@ -73,9 +75,9 @@ const StartGameScreen = props => {
             }}
         >
             <View style={styles.screen}>
-                <Text style={styles.title}>Start a New Game !</Text>
+                <TitleText style={styles.title}>Start a New Game !</TitleText>
                 <Card style={styles.inputContainer}>
-                    <Text style={styles.subTitle}>Select a Number</Text>
+                    <BodyText style={styles.subTitle}>Select a Number</BodyText>
                     <Input 
                         style={styles.input} 
                         blurOnSubmit 
@@ -88,10 +90,10 @@ const StartGameScreen = props => {
                     />
                     <View style={styles.buttonsContainer}>
                         <TouchableOpacity style={styles.button} onPress={resetInputHandler}>
-                            <Text style={styles.text}>Reset</Text>
+                            <BodyText style={styles.text}>Reset</BodyText>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.button} onPress={confirmInputHandler}>
-                            <Text style={styles.text}>Confirm</Text>
+                            <BodyText style={styles.text}>Confirm</BodyText>
                         </TouchableOpacity>
                     </View>
                 </Card>
@@ -111,12 +113,10 @@ const styles = StyleSheet.create({
         fontSize: 25,
         marginVertical: 10,
         color: Colors.primary,
-        fontFamily: 'open-sans',
     },
     subTitle: {
         fontSize: 20,
         color: Colors.accent,
-        fontFamily: 'open-sans',
     },
     inputContainer: {
         width: 300,
@@ -127,7 +127,6 @@ const styles = StyleSheet.create({
     confirmedOutput: {
         color: Colors.accent,
         fontSize: 20,
-        fontFamily: 'open-sans',
     },
     buttonsContainer: {
         flexDirection: 'row',
@@ -145,7 +144,6 @@ const styles = StyleSheet.create({
     text: {
         color: Colors.light,
         textAlign: 'center',
-        fontFamily: 'open-sans',
         fontSize: 16,
     },
     input: {

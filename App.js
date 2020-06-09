@@ -11,7 +11,11 @@ import GameOverScreen from './screens/GameOverScreen';
 const fetchFonts = () => {
   return Font.loadAsync({
     'lobster': require('./assets/fonts/Lobster-Regular.ttf'),
-    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf')
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'montserrat': require('./assets/fonts/Montserrat-Medium.ttf'),
+    'merriweather': require('./assets/fonts/Merriweather-Regular.ttf'),
+    'abril': require('./assets/fonts/AbrilFatface-Regular.ttf'),
+    'poppins': require('./assets/fonts/Poppins-Regular.ttf'),
   });
 };
 
