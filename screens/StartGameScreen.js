@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     TouchableWithoutFeedback,
     Keyboard,
-    Alert
+    Alert,
+    ScrollView
  } from 'react-native';
 
 import TitleText from '../components/TitleText';
@@ -76,29 +77,31 @@ const StartGameScreen = props => {
             }}
         >
             <View style={styles.screen}>
-                <TitleText style={styles.title}>Start a New Game !</TitleText>
-                <Card style={styles.inputContainer}>
-                    <BodyText style={styles.subTitle}>Select a Number</BodyText>
-                    <Input 
-                        style={styles.input} 
-                        blurOnSubmit 
-                        autoCapitalize='none' 
-                        autoCorrect={false} 
-                        keyboardType='number-pad'
-                        maxLength={2} 
-                        onChangeText={numberInputHandler}
-                        value={enteredValue}
-                    />
-                    <View style={styles.buttonsContainer}>
-                        <MainButton onPress={resetInputHandler}>
-                            Reset
-                        </MainButton>
-                        <MainButton onPress={confirmInputHandler}>
-                            Confirm
-                        </MainButton>
-                    </View>
-                </Card>
-                {confirmedOutput}
+                <ScrollView>
+                    <TitleText style={styles.title}>Start a New Game !</TitleText>
+                    <Card style={styles.inputContainer}>
+                        <BodyText style={styles.subTitle}>Select a Number</BodyText>
+                        <Input 
+                            style={styles.input} 
+                            blurOnSubmit 
+                            autoCapitalize='none' 
+                            autoCorrect={false} 
+                            keyboardType='number-pad'
+                            maxLength={2} 
+                            onChangeText={numberInputHandler}
+                            value={enteredValue}
+                        />
+                        <View style={styles.buttonsContainer}>
+                            <MainButton onPress={resetInputHandler}>
+                                Reset
+                            </MainButton>
+                            <MainButton onPress={confirmInputHandler}>
+                                Confirm
+                            </MainButton>
+                        </View>
+                    </Card>
+                    {confirmedOutput}
+                </ScrollView>
             </View>
         </TouchableWithoutFeedback>
     );
@@ -114,14 +117,16 @@ const styles = StyleSheet.create({
         fontSize: 25,
         marginVertical: 10,
         color: Colors.primary,
+        textAlign: 'center',
     },
     subTitle: {
         fontSize: 20,
         color: Colors.accent,
     },
     inputContainer: {
-        width: 300,
-        maxWidth: '80%',
+        width: '80%',
+        minWidth: 300,
+        maxWidth: '95%',
         alignItems: 'center',
         marginTop: 20,
     },

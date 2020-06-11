@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
 import Colors from '../constants/themeColors';
 import BodyText from '../components/BodyText';
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         padding: 10,
         marginVertical: 10,
         borderRadius: 5,
-        width: 115,
+        //width: 115,
+        width: Dimensions.get('window').width / 4
     },
     text: {
         color: Colors.light,

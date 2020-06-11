@@ -1,5 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView, FlatList } from 'react-native';
+import { 
+    View, 
+    Text, 
+    StyleSheet, 
+    TouchableOpacity, 
+    Alert, 
+    ScrollView, 
+    FlatList,
+    Dimensions
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import BodyText from '../components/BodyText';
@@ -102,10 +111,10 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'space-between',
         paddingHorizontal: 25,
-        marginVertical: 10
+        marginVertical: Dimensions.get('window').height > 600 ? 20 : 10,
     },
     listContainer: {
-        width: '60%',
+        width: Dimensions.get('window').width > 350 ? '60%' : '80%',
         flex: 1,
     },
     list: {
