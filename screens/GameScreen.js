@@ -7,10 +7,11 @@ import {
     Alert, 
     ScrollView, 
     FlatList,
-    Dimensions
+    Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import TitleText from '../components/TitleText';
 import BodyText from '../components/BodyText';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
@@ -70,7 +71,7 @@ const GameScreen = props => {
 
     return (
         <View style={styles.screen}>
-            <BodyText style={styles.subTitle}>Opponent's Guess</BodyText>
+            <TitleText style={styles.title}>Opponent's Guess</TitleText>
             <NumberContainer>{currentGuess}</NumberContainer>
             <Card style={styles.buttonsContainer}>
                 <MainButton onPress={nextGuessHandler.bind(this, 'lower')}>
@@ -102,9 +103,11 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
     },
-    subTitle: {
-        fontSize: 20,
+    title: {
+        fontSize: 25,
+        marginVertical: 10,
         color: Colors.accent,
+        textAlign: 'center',
     },
     buttonsContainer: {
         flexDirection: 'row',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 
 import Colors from '../constants/themeColors';
 
@@ -11,8 +11,9 @@ const Card = props => {
 
 const styles = StyleSheet.create({
     card: {
-        width: 300,
-        maxWidth: '80%',
+        width: '80%',
+        minWidth: 280,
+        maxWidth: '95%',
         alignItems: 'center',
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },

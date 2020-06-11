@@ -17,7 +17,7 @@ const MainButton = props => {
 const styles = StyleSheet.create({
     button: {
         backgroundColor: Colors.primary,
-        padding: 10,
+        padding: Dimensions.get('window').width < 400 ? 5 : 10,
         marginVertical: 10,
         borderRadius: 5,
         //width: 115,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     text: {
         color: Colors.light,
         textAlign: 'center',
-        fontSize: 16,
+        fontSize: Dimensions.get('window').width < 400 ? 12 : 16,
     },
 });
 

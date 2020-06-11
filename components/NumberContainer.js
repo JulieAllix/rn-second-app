@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Dimensions } from 'react-native';
 
 
 import Colors from '../constants/themeColors';
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     },
     number: {
         color: Colors.primary,
-        fontSize: 22,
+        fontSize: Dimensions.get('window').width < 400 ? 18 : 22,
     }
 });
 

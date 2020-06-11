@@ -8,7 +8,8 @@ import {
     TouchableWithoutFeedback,
     Keyboard,
     Alert,
-    ScrollView
+    ScrollView,
+    Dimensions
  } from 'react-native';
 
 import TitleText from '../components/TitleText';
@@ -76,8 +77,8 @@ const StartGameScreen = props => {
                 Keyboard.dismiss();
             }}
         >
-            <View style={styles.screen}>
-                <ScrollView>
+            <ScrollView>
+                <View style={styles.screen}>
                     <TitleText style={styles.title}>Start a New Game !</TitleText>
                     <Card style={styles.inputContainer}>
                         <BodyText style={styles.subTitle}>Select a Number</BodyText>
@@ -100,9 +101,9 @@ const StartGameScreen = props => {
                             </MainButton>
                         </View>
                     </Card>
-                    {confirmedOutput}
-                </ScrollView>
-            </View>
+                    {confirmedOutput} 
+                </View>
+            </ScrollView>
         </TouchableWithoutFeedback>
     );
 };
@@ -120,19 +121,16 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     subTitle: {
-        fontSize: 20,
+        fontSize: Dimensions.get('window').width < 400 ? 16 : 20,
         color: Colors.accent,
     },
     inputContainer: {
-        width: '80%',
-        minWidth: 300,
-        maxWidth: '95%',
         alignItems: 'center',
-        marginTop: 20,
+        margin: 5,
     },
     confirmedOutput: {
         color: Colors.accent,
-        fontSize: 20,
+        fontSize: Dimensions.get('window').width < 400 ? 16 : 20,
     },
     buttonsContainer: {
         flexDirection: 'row',
