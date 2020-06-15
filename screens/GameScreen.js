@@ -10,6 +10,7 @@ import {
     Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 import TitleText from '../components/TitleText';
 import BodyText from '../components/BodyText';
@@ -38,6 +39,8 @@ const renderListItem = (listLength, itemData) => (
 );
 
 const GameScreen = props => {
+    ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
+
     const initialGuess = generateRandomBetween(1, 100, props.userChoice);
     const [currentGuess, setCurrentGuess] = useState(initialGuess);
     const [pastGuesses, setPastGuesses] = useState([initialGuess.toString()]);
@@ -50,6 +53,7 @@ const GameScreen = props => {
 
     useEffect(() => {
         const updateLayout = () => {
+            if ()
             setAvailableDeviceWidth(Dimensions.get('window').width);
             setAvailableDeviceHeight(Dimensions.get('window').height);
         };

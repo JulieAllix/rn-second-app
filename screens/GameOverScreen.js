@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     screen: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingVertical: 10,
     },
     summary: {
         fontSize: Dimensions.get('window').width < 400 ? 16 : 20,
@@ -53,7 +54,6 @@ const styles = StyleSheet.create({
     image: {
         width: Dimensions.get('window').width * 0.7,
         height: Dimensions.get('window').width * 0.7,
-
     },
     resultContainer: {
         width: '80%',
