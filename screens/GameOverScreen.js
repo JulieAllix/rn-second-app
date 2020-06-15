@@ -6,7 +6,7 @@ import {
     TouchableOpacity, 
     Image, 
     Dimensions,
-    ScrollView 
+    ScrollView
 } from 'react-native';
 
 import MainButton from '../components/MainButton';
