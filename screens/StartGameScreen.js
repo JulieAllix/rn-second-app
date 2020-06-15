@@ -9,7 +9,8 @@ import {
     Keyboard,
     Alert,
     ScrollView,
-    Dimensions
+    Dimensions,
+    KeyboardAvoidingView,
  } from 'react-native';
 
 import TitleText from '../components/TitleText';
@@ -71,40 +72,43 @@ const StartGameScreen = props => {
     };
 
     return (
-        // The keyboard disappears when the user taps anywhere on the screen
-        <TouchableWithoutFeedback 
-            onPress={() => {
-                Keyboard.dismiss();
-            }}
-        >
-            <ScrollView>
-                <View style={styles.screen}>
-                    <TitleText style={styles.title}>Start a New Game !</TitleText>
-                    <Card style={styles.inputContainer}>
-                        <BodyText style={styles.subTitle}>Select a Number</BodyText>
-                        <Input 
-                            style={styles.input} 
-                            blurOnSubmit 
-                            autoCapitalize='none' 
-                            autoCorrect={false} 
-                            keyboardType='number-pad'
-                            maxLength={2} 
-                            onChangeText={numberInputHandler}
-                            value={enteredValue}
-                        />
-                        <View style={styles.buttonsContainer}>
-                            <MainButton onPress={resetInputHandler}>
-                                Reset
-                            </MainButton>
-                            <MainButton onPress={confirmInputHandler}>
-                                Confirm
-                            </MainButton>
-                        </View>
-                    </Card>
-                    {confirmedOutput} 
-                </View>
-            </ScrollView>
-        </TouchableWithoutFeedback>
+        <ScrollView>
+            <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+                {/* The keyboard disappears when the user taps anywhere on the screen */}
+                <TouchableWithoutFeedback 
+                    onPress={() => {
+                        Keyboard.dismiss();
+                    }}
+                >
+                
+                    <View style={styles.screen}>
+                        <TitleText style={styles.title}>Start a New Game !</TitleText>
+                        <Card style={styles.inputContainer}>
+                            <BodyText style={styles.subTitle}>Select a Number</BodyText>
+                            <Input 
+                                style={styles.input} 
+                                blurOnSubmit 
+                                autoCapitalize='none' 
+                                autoCorrect={false} 
+                                keyboardType='number-pad'
+                                maxLength={2} 
+                                onChangeText={numberInputHandler}
+                                value={enteredValue}
+                            />
+                            <View style={styles.buttonsContainer}>
+                                <MainButton onPress={resetInputHandler}>
+                                    Reset
+                                </MainButton>
+                                <MainButton onPress={confirmInputHandler}>
+                                    Confirm
+                                </MainButton>
+                            </View>
+                        </Card>
+                        {confirmedOutput} 
+                    </View>
+                </TouchableWithoutFeedback>
+            </KeyboardAvoidingView>
+        </ScrollView>
     );
 };
 
