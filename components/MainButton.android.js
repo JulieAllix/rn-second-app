@@ -5,8 +5,7 @@ import {
     StyleSheet, 
     TouchableOpacity, 
     Dimensions, 
-    TouchableNativeFeedback,
-    Platform
+    TouchableNativeFeedback
 } from 'react-native';
 
 import Colors from '../constants/themeColors';
