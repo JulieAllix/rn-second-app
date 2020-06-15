@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 
 import Colors from '../constants/themeColors';
@@ -7,11 +7,17 @@ import BodyText from '../components/BodyText';
 const MainButton = props => {
     const [buttonWidth, setButtonWidth] = useState(Dimensions.get('window').width / 4);
 
-    const updateLayout = () => {
-        setButtonWidth(Dimensions.get('window').width / 4);
-    };
-
-    Dimensions.addEventListener('change', updateLayout);
+    useEffect(() => {
+        const updateLayout = () => {
+            setButtonWidth(Dimensions.get('window').width / 4);
+        };
+    
+        Dimensions.addEventListener('change', updateLayout);
+        
+        return () => {
+            Dimensions.removeEventListener('change', updateLayout);
+        };
+    });
 
     return (
         <TouchableOpacity style={{...styles.button, width:buttonWidth}} onPress={props.onPress}>
