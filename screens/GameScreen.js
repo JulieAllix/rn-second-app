@@ -53,7 +53,6 @@ const GameScreen = props => {
 
     useEffect(() => {
         const updateLayout = () => {
-            if ()
             setAvailableDeviceWidth(Dimensions.get('window').width);
             setAvailableDeviceHeight(Dimensions.get('window').height);
         };
